@@ -5,7 +5,7 @@ Fazendo o download do arquivo AdventureWorksDW2022.bak e anexando-o no SQL Serve
 <br><br>
 
 ## Análise básica da tabela
-<img align="right" width="500"  src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Conhecer%20tabela.PNG">
+<img align="right" width="500"  src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Consulta%20Simples.PNG?raw=true">
 Iniciamos o projeto entendendo cada objeto, tabela, campo, tipos de dados e relacionamentos do modelo de dados AdventureWorks. Após identificar a tabela de clientes e vendas, desenvolvemos os scripts em SQL para explorar os dados e extrair os primeiros insights durante a análise exploratória de dados. Como por exemplo: <br><br>
 - Clientes distintos <br>
 - Clientes por país/região <br>
@@ -19,7 +19,7 @@ Iniciamos o projeto entendendo cada objeto, tabela, campo, tipos de dados e rela
 <br><br>
 
 ## Análise dos Clientes
-<img align="left" width="500"  src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Conhecer%20Clientes.PNG?raw=true">
+<img align="left" width="500"  src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Consulta%20Clientes.PNG?raw=true">
 Para identificar os novos clientes, primeiro foi necessário agrupar os clientes por ano e mês em uma CTE - Common Table Expression, porém é possível o mesmo resultado utilizando outras técnicas. Na CTE criada com o nome ClientesPrimeiraDataCompra, identificamos qual foi a primeira compra de cada, agrupando novos clientes por ano e mês.
 Com os dados agrupados, utilizamos a função de janela LAG para encontrar novos clientes no mesmo mês do ano anterior, permitindo os seguintes cálculos: <br><br>
 - Novos Clientes  <br>
@@ -32,7 +32,7 @@ Analisando a variação de novos clientes entre períodos, é possível identifi
 
 <br><br>
 ## Análise das regiões
-<img align="right" width="500" height="320" src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Conhecer%20Cidades%20e%20Regi%C3%B5es.PNG?raw=true">
+<img align="right" width="500" height="320" src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Consulta%20Regi%C3%A3o.PNG?raw=true">
 Analisando a variação de novos clientes, quando comparados com o mesmo período/mês do ano anterior, decidimos agrupar esta variação por região/país para identificar se houve crescimento. 
 Filtramos apenas o ano de 2013, pois foi o período com maiores taxas de crescimentos de novos clientes, o que nos permitiu concluir que: <br><br>
 - Canadá teve o maior crescimento percentual entre todos os países - aproximadamente 623% <br>
@@ -46,7 +46,7 @@ Filtramos apenas o ano de 2013, pois foi o período com maiores taxas de crescim
 
 <br><br>
 ## Análise dos produtos
-<img align="right" width="500" height="320" src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Conhecendo%20produtos.PNG?raw=true">
+<img align="right" width="500" height="320" src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Consulta%20Produto.PNG?raw=true">
 Analisando cada produto foi possível descobrir mais sobre a base de dados e entender os sequintes pontos: <br><br>
 - Quantidade de venda de todos os produtos  <br>
 - Qual o maior valor feito em vendas - aproximadamente 3.578 <br>
