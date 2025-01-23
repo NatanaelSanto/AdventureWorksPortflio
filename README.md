@@ -1,17 +1,15 @@
 # Análise de clientes AdventureWorks 2022
-Utilizando o banco de dados AdventureWorks, empresa imaginária de fabricação e venda de bicicletas, iniciamos uma análise para entender a evolução dos clientes ao longo do tempo, principalmente entre 2011 e 2013. O objetivo inicial é fazer uma análise exploratória dos clientes que compraram os produtos da AdventureWorks, entendendo onde estão, quanto e o que compram, se houve evolução na base de novos clientes e onde está o maior impacto desta evolução.
+Utilizando o banco de dados AdventureWorks, empresa imaginária de fabricação e venda de bicicletas, iniciamos uma análise para entender a evolução dos dados ao longo do tempo, principalmente entre 2011 e 2013. O objetivo inicial é fazer uma análise exploratória dos produtos da AdventureWorks, entendendo onde estão, quanto venderam, se houve evolução na base de dados e onde está o maior impacto desta evolução.
 
 Fazendo o download do arquivo AdventureWorksDW2022.bak e anexando-o no SQL Server, é possível executar cada consulta SQL utilizada nesta análise e obter os mesmos resultados apresentados.
 <br><br>
 
 ## Análise básica da tabela
 <img align="right" width="500"  src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Consulta%20Simples.PNG?raw=true">
-Iniciamos o projeto entendendo cada objeto, tabela, campo, tipos de dados e relacionamentos do modelo de dados AdventureWorks. Após identificar a tabela de clientes e vendas, desenvolvemos os scripts em SQL para explorar os dados e extrair os primeiros insights durante a análise exploratória de dados. Como por exemplo: <br><br>
-- Clientes distintos <br>
-- Clientes por país/região <br>
-- Produtos mais comprados por estes clientes <br>
-- Média de vendas para cada cliente <br>
-- E informações pertinentes, como ticket médio, mínimo e máximo.
+Iniciamos o projeto entendendo um pouco mais como é a base da dados do AdventureWorks, para isso, realizei uma Query SQL utilizando o ProductKey, OrderDate, CustomerKey, ProductCost e SalesAmount, dessa forma foi possível conhecer um pouco mais a base de dados, como por exemplo: <br><br>
+- Data das ordens <br>
+- Custo dos Produtos <br>
+- Venda dos Produtos <br>
 <br><br>
 <a href="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/SQL/Consulta%20Simples.sql" target="_blank">Clique aqui</a> e acesse o script SQL no Github.
 
@@ -20,11 +18,10 @@ Iniciamos o projeto entendendo cada objeto, tabela, campo, tipos de dados e rela
 
 ## Análise dos Clientes
 <img align="left" width="500"  src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Consulta%20Clientes.PNG?raw=true">
-Para identificar os novos clientes, primeiro foi necessário agrupar os clientes por ano e mês em uma CTE - Common Table Expression, porém é possível o mesmo resultado utilizando outras técnicas. Na CTE criada com o nome ClientesPrimeiraDataCompra, identificamos qual foi a primeira compra de cada, agrupando novos clientes por ano e mês.
-Com os dados agrupados, utilizamos a função de janela LAG para encontrar novos clientes no mesmo mês do ano anterior, permitindo os seguintes cálculos: <br><br>
-- Novos Clientes  <br>
-- Novos Clientes Ano Anterior<br>
-- Variação de novos clientes entre períodos <br>
+Para identificar os clientes, optei por começar com a data da primeira compra, após isso, adicinei diversos outros dados como Sales, FirstName, Gender e City, com isso, foi possível descobrir mais sobre a base de clientes do AdventureWorks e entender melhor como trabalhar com a base de dados: <br><br>
+- Sales por Clientes  <br>
+- Data de compra dos clientes<br>
+- Cidade do cliente <br>
 <br>
 <a href="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/SQL/Consulta%20Clientes.sql="_blank">Clique aqui</a> e acesse o script SQL no Github.
 <br><br>
@@ -33,13 +30,10 @@ Analisando a variação de novos clientes entre períodos, é possível identifi
 <br><br>
 ## Análise das regiões
 <img align="right" width="500" height="320" src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Consulta%20Regi%C3%A3o.PNG?raw=true">
-Analisando a variação de novos clientes, quando comparados com o mesmo período/mês do ano anterior, decidimos agrupar esta variação por região/país para identificar se houve crescimento. 
-Filtramos apenas o ano de 2013, pois foi o período com maiores taxas de crescimentos de novos clientes, o que nos permitiu concluir que: <br><br>
-- Canadá teve o maior crescimento percentual entre todos os países - aproximadamente 623% <br>
-- Estados Unidos teve o maior crescimento cumulativo de clientes - aproximadamente 5050 <br>
-- Apenas os Estados Unidos tiveram um crescimento maior que todos países da Europa juntos, sendo a América do Norte o principal mercado de atuação da empresa.
-- Todos países europeus dobraram ou superaram sua base de novos clientes. <br>
-- Austrália, apesar de não ter um crescimento comparável com Europa e América do Norte, aumentou sua base de novos clientes em quase 50%, sendo um ótimo resultado em 2013. <br>
+Após explorar a base de dados com foco no cliente, comecei a me aprofundar pelas regiões da base de dados, assim podendo descobrir em quais cidades tem lojas da adventureworks, quanto essas cidades venderam e em qual região do globo elas estão: <br><br>
+- Sales Amount por país <br>
+- Quais cidades do mundo tem lojas da AdventureWorks <br>
+ <br>
 
 <br>
 <a href="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/SQL/Consulta%20Região.sql" target="_blank">Clique aqui</a> e acesse o script SQL no Github.
@@ -58,7 +52,7 @@ Analisando cada produto foi possível descobrir mais sobre a base de dados e ent
 <br><br>
 
 ## Conclusão técnica SQL
-Com o SQL, podemos analisar, extrair, manipular e exibir os dados de uma base de dados de uma forma simples e rápida, apenas conectando direto na fonte dos dados. Porém, não é uma ferramenta dinâmica em com abordagem visual, pois cada vez que pricisa ver os dados de uma forma diferente, precisa reescrever o comando SQL para extrair os dados da forma que gostaria, porem os dados sempre serão exibidos em formato de tabela, deixando sua análise menos dinamica do que um dashboard, por exemplo.
+Com o SQL, podemos analisar, extrair, manipular e exibir os dados de uma base de dados de uma forma simples e rápida, apenas conectando direto na fonte dos dados. Porém, não é uma ferramenta dinâmica em com abordagem visual, pois cada vez que for preciso ver os dados de uma forma diferente, é preciso reescrever o comando SQL para extrair os dados da forma que gostaria, porem os dados sempre serão exibidos em formato de tabela, deixando sua análise menos dinamica do que um dashboard, por exemplo.
 
 A minha conclusão é que o SQL é sempre uma linguagem muito importante e deve ser utilizada para analisar um banco de dados antes de escolher outra ferramenta para análise dos dados, como o Power BI por exemplo. Ou seja, valide as informações no SQL e só depois considere outras ferramentas de acordo com a necessidade da empresa ou projeto que estiver atuando.
 Não existe uma ferramenta melhor que a outra, existe ferramentas adequadas as necessidades apresentadas em cada projeto de dados.
@@ -67,12 +61,12 @@ Não existe uma ferramenta melhor que a outra, existe ferramentas adequadas as n
 
 ## Dashboard Power BI
 <img align="right" width="500"  src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Tela%20Principal.PNG?raw=true">
-Seguindo a idéia que SQL não é a melhor ferramenta para uma análise dinâmica e visual de informações, desenvolvi um dashboard focado na análise dos clientes novos e recorrentes da mesma base de dados AdventureWorks.
-Como o Power BI permite análises dinâmicas e visuais de forma simples, escrevendo menos código DAX e permitindo o usuário total interação com a ferramenta, fiz uma análise exploratória na quantidade e receira entre novos e recoreente.<br>
+Seguindo a idéia que SQL não é a melhor ferramenta para uma análise dinâmica e visual de informações, desenvolvi um dashboard focado na análise dos dados da mesma base de dados AdventureWorks.
+Como o Power BI permite análises dinâmicas e visuais de forma simples, escrevendo menos código DAX e permitindo o usuário total interação com a ferramenta.<br>
 Com esta análise, chegamos as seguintes conclusões:<br>
- - A maioria dos clientes a partir de 2013 é novo. <br>
- - Além da quantidade de clientes novos, a receita trazida por clientes novos também é a maior fatia do total.<br>
- - Os clientes novos não são a maioria para todos países e períodos. Por isso o Power BI é uma ferramenta de extrema importância, pois permite o usuário final fazer seus filtros e ter análises de forma dinâmica.
+ - A AdventureWorks teve um custo de 17,3Mi, Sales de 29,4Mi e lucro de 12,1Mi. <br>
+ - A empresa AdventureWorks teve um total de vendas de 60mil ordens.<br>
+ - A cidade que mais teve vendas foi londres, porém, o país que mais vendeu foi os Estados Unidos.
 <br><br>
 <a href="https://app.powerbi.com/view?r=eyJrIjoiZGQzOGZiY2MtYjAxYy00MDQ2LTk2YTgtOGEyZTg3MDRlMDc4IiwidCI6ImVlN2FlYzQwLTg1NGUtNDVhYS1hOTc5LTAyMDViNGU3MjcyYSJ9" target="_blank">Clique aqui</a> e acesse o a solução desenvolvida para a empresa AdventureWorks.
 <br>
