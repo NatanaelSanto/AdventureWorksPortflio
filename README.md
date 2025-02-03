@@ -73,6 +73,28 @@ Com esta análise, chegamos as seguintes conclusões:<br>
 <a href="https://github.com/NatanaelSanto/AdventureWorksPortflio/tree/main/PowerBI" target="_blank">Clique aqui</a> e acesse o arquivo .pbix no Github.
 <br><br>
 
+Para realizar toda a análise no Power BI, foi necessário importar a base de dados do SQL. No entanto, esse processo não foi tão simples. Logo no início, enfrentei um problema ao tentar importar os dados, pois o Power BI não conseguia acessá-los. Apesar de muita pesquisa, não encontrei uma solução clara para o problema. Diante disso, decidi buscar alternativas por conta própria e, após algumas tentativas, consegui resolvê-lo sozinho. Sinto-me muito orgulhoso desse feito, pois demonstrou minha capacidade de adaptação e resolução de problemas.
+<br><br>
+
+Algumas medidas DAX utilizadas foram: 
+<br> 
+Cost = SUM(FactInternetSales[TotalProductCost])
+<br> 
+Cost x Sales Delta = [SalesAmount] - [Cost]
+<br> 
+SalesAmount = SUM(FactInternetSales[SalesAmount])
+<br> 
+SalesAmount LY = 
+CALCULATE(
+    [SalesAmount],
+    SAMEPERIODLASTYEAR(FactInternetSales[DueDate])
+)
+<br> 
+SalesQuantity = SUM(FactInternetSales[OrderQuantity])
+<br><br>  
+
+
+
 ## Ferramentas e linguagens utilizadas
 <div style="display: inline_block">
     <img align="center" alt="SQL" height="40" width="40" src="https://github.com/BruceFonseca/ferramentas/blob/main/logo.png?raw=true">
