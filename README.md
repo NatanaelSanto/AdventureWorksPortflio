@@ -25,9 +25,8 @@ Para identificar os clientes, optei por começar com a data da primeira compra, 
 <br>
 <a href="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/SQL/Consulta%20Clientes.sql="_blank">Clique aqui</a> e acesse o script SQL no Github.
 <br><br>
-Analisando a variação de novos clientes entre períodos, é possível identificar em 2013, um crescimento mensal muito acima da variação de 2012, sendo necessário aprofundar a análise e identificar de onde está vindo este grande crescimento de novos clientes.
 
-<br><br>
+
 ## Análise das regiões
 <img align="right" width="500" height="320" src="https://github.com/NatanaelSanto/AdventureWorksPortflio/blob/main/Imagens/Consulta%20Regi%C3%A3o.PNG?raw=true">
 Após explorar a base de dados com foco no cliente, comecei a me aprofundar pelas regiões da base de dados, assim podendo descobrir em quais cidades tem lojas da adventureworks, quanto essas cidades venderam e em qual região do globo elas estão: <br><br>
